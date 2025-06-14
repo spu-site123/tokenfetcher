@@ -1,4 +1,4 @@
-import pyperclip; print("kinokonoosama's Token fetcher version 0.1 / write '1' to get first avabible token from 'tokens' file.")
+import pyperclip; print("kinokonoosama's Token fetcher version 0.1 / write '1' to get first available token from 'tokens' file.")
 def formatFl(unFormattedContent):
     formatted=[]; newFormatted=[]
     for i in unFormattedContent:

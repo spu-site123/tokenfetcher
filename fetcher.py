@@ -1,7 +1,8 @@
-import pyperclip; print("OpenRouter Token fetcher version 0.1 / write '1' to get first avabible token from 'tokens' file.")
+import pyperclip; print("OpenRouter Token fetcher version 0.2 / write '1' to get first avabible token from 'tokens' file.")
 def formatFl(unFormattedContent):
     formatted=[]; newFormatted=[]
-    for i in unFormattedContent: formatted.append(i.strip("\n").split(" ")); return formatted
+    for i in unFormattedContent: formatted.append(i.strip("\n").split(" "))
+    return formatted
 def read(fl): return formatFl(fl.readlines())
 def token_Usage_loop(fl_contents,id,file):
     print(f"{fl_contents[id][0]} <- your token is already in your clipboard! Happy usage (👉ﾟヮﾟ)👉"); pyperclip.copy(fl_contents[id][0])
@@ -13,9 +14,8 @@ def formatCMD(unFormattedcmd): return unFormattedcmd.split(" ")
 def CMDProcess(CMD, fl_contents):
     if CMD[0] == "1":
         count=0
-        try: 
-            while fl_contents[count][1] != "available": count+=1; return [0,count]
-        except: print("No un-used token available.")
+        while fl_contents[count][1] != "available": count+=1
+        return [0,count]
 def save(id_,status_,fl_content_,tokens_file):
     new_content = fl_content_; new_content[id_][1] = status_; newstring=""
     for i in new_content: newstring+=i[0]+" "+i[1]+"\n"
